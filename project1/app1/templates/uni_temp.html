@@ -1,0 +1,20 @@
+<form method="POST" name="col_form">
+    {% csrf_token %}
+    <label for="column1">Select column </label>
+    <select name="column1" id="column1">
+      {% for column in df_slice.columns %}
+                        <option value="{{column}}">{{ column }}</option>
+                    {% endfor %}
+    </select>
+    <br>
+    <label for="chart">Select charts :</label>
+    <select name="chart" id="column2">
+      <option value="pie">Pie chart</option>
+      <option value="box">Box plot</option>
+      <option value="bar">Bar plot</option>
+      <option value="histogram">Histogram</option>
+      <option value="density">Density plot</option>
+    </select>
+    <br>      
+    <button type="submit">Submit</button>
+  </form>

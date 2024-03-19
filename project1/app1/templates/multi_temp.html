@@ -1,0 +1,27 @@
+<form method="POST" name="col_form">
+    {% csrf_token %}
+    <label for="column1">multi-variate</label>
+    <select name="column1" id="column1">
+      {% for column in df_slice.columns %}
+                        <option value="{{column}}">{{ column }}</option>
+                    {% endfor %}
+    </select>
+    <br>
+  
+    <label for="column2">Select Column 2:</label>
+    <select name="column2" id="column2">
+      {% for column in df_slice.columns %}
+                        <option value="{{column}}">{{ column }}</option>
+                    {% endfor %}
+    </select>
+    <label for="chart">Select charts :</label>
+    <select name="chart" id="column2">
+      <option value="bar">Bar</option>
+      <option value="line">Line</option>
+      <option value="scatter">scatter</option>
+      <option value="histogram">Histogram</option>
+      <option value="heatmap">Heatmap</option>
+    </select>
+    <br>      
+    <button type="submit">Submit</button>
+  </form>
